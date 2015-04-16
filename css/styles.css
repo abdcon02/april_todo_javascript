@@ -1,10 +1,15 @@
 li {
-    cursor:pointer;
+  color: #3388ff;
+  cursor:pointer;
 }
 li:hover{
-    color:blue;
-    text-decoration: underline;
+  color: #3388ff;
+  text-decoration: underline;
 }
 ul {
   list-style: none;
+}
+
+#add-task {
+  display:none;
 }

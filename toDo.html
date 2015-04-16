@@ -12,12 +12,14 @@
     <div class="row">
       <h1>To Do</h1>
       <div class="col-sm-6">
-        <h3>List</h3>
+        <h3>Lists</h3>
         <ul id="list_items">
         </ul>
       </div>
       <div class="col-sm-6">
-        <h3>Selected List: <span id="selected_list"></span></h3>
+        <h3>Selected List: <span id="selected_list">None</span></h3>
+        <ul id='tasks'>
+        </ul>
       </div>
     </div>
 
@@ -29,17 +31,16 @@
             <label for="list_name">List Name</label>
             <input type="text" class="form-control" id="list_name">
           </div>
-
           <button type="submit" class="btn btn-danger">Add</button>
         </form>
       </div>
 
-      <div class="col-sm-6">
+      <div class="col-sm-6" id="add-task">
         <h3>Add a Task:</h3>
         <form id="newTask">
           <div class="form-group">
-            <label for="taskName">Description</label>
-            <input type="text" class="form-control" id="taskName">
+            <label for="task_name">Description</label>
+            <input type="text" class="form-control" id="task_name">
           </div>
 
           <button type="submit" class="btn btn-danger">Add</button>
