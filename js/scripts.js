@@ -1,7 +1,6 @@
 $(function() {
 
-  var list_array = [];
-
+  //CREATE A NEW LIST
   $('form#newList').submit(function(event) {
       event.preventDefault();
 
@@ -14,20 +13,40 @@ $(function() {
 
       $('#list_items').append('<li class="list_item">' + todo.item + '</li>');
 
+
+      //CLICK ON A LIST ITEMS
       $('.list_item').last().click(function() {
         $('#selected_list').text(todo.item);
+
+        $('form#newTask').off('submit');
+
+
+        //ADD A NEW TASK
+        $('form#newTask').submit(function(event) {
+          event.preventDefault();
+
+          var taskOption = $('#task_name').val();
+          todo.tasks.push(taskOption);
+          $('#tasks').append("<li class='task_item'>" + taskOption + "</li>");
+          $('.task_item').last().click(function() {
+            $(this).remove();
+            todo.tasks = [];
+          });
+          $('#task_name').val('');
+        });
+
+        $("#tasks").empty();
+        todo.tasks.forEach(function(task) {
+          $("#tasks").append('<li class="task_item">' + task + '</li>');
+          $('.task_item').last().click(function() {
+            $(this).remove();
+            todo.tasks = [];
+          });
+
+        });
+
+
         $('#add-task').show();
       });
-
-      $('form#newTask').submit(function(event) {
-        event.preventDefault();
-
-        var taskOption = $('#task_name').val();
-        $('#task_name').val('');
-        todo.tasks.push(taskOption);
-        $('#tasks').append("<li>" + taskOption + "</li>");
-      });
   });
-
-
 });
