@@ -5,3 +5,6 @@ li:hover{
     color:blue;
     text-decoration: underline;
 }
+ul {
+  list-style: none;
+}
