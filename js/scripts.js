@@ -30,7 +30,8 @@ $(function() {
           $('#tasks').append("<li class='task_item'>" + taskOption + "</li>");
           $('.task_item').last().click(function() {
             $(this).remove();
-            todo.tasks = [];
+            var index = todo.tasks.indexOf(taskOption);
+            todo.tasks.splice(index, 1);
           });
           $('#task_name').val('');
         });
@@ -40,7 +41,8 @@ $(function() {
           $("#tasks").append('<li class="task_item">' + task + '</li>');
           $('.task_item').last().click(function() {
             $(this).remove();
-            todo.tasks = [];
+            var index = todo.tasks.indexOf(task);
+            todo.tasks.splice(index, 1);
           });
 
         });
